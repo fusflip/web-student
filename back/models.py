@@ -16,6 +16,7 @@ class Role(models.Model):
 class Paper(models.Model):
     id = models.IntegerField(primary_key=True, unique=True)
     authorId = models.ForeignKey("User", on_delete=models.SET_NULL, null=True)
+    subjectId = models.ForeignKey("Subject", on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     createDate = models.DateTimeField()
     status = models.IntegerField()
@@ -41,3 +42,7 @@ class Settings(models.Model):
     setType = models.CharField(max_length=100)
     value = models.CharField(max_length=100)
     
+class Subject(models.Model):
+    id = models.IntegerField(primary_key=True, unique=True)
+    name = models.CharField(max_length=100)
+    description = models.TextField()
