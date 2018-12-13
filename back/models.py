@@ -6,6 +6,7 @@ class User(models.Model):
     id = models.IntegerField(primary_key=True, unique=True)
     roleId = models.ForeignKey("Role", on_delete=models.SET_NULL, null=True)
     fullname = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
     login = models.CharField(max_length=50)
     regDate = models.DateTimeField()
 
