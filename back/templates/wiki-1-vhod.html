@@ -21,12 +21,15 @@
 			 <td width="30">&nbsp; </td>
 			<td width="180" bgcolor="#D0D0D0" valign="top" >&nbsp;<p><center>Регистрация</center></p>
 			<p><center>Вход</center></p>
-				 <p>Логин</p><input type="password">
-				<p>Пароль</p><input type="password">
+			<form method="POST">
+				{% csrf_token %}
+				<p>Логин</p><input name="login" type="text">
+				<p>Пароль</p><input name="password" type="password">
 				<p></p>
-				<center><input type="button" name="button" id="button" value="Войти"></center>
+				<center><input type="submit" name="button" id="button" value="Войти"></center>
 				<p></p>
-				<center><input type="button" name="button" id="button" value="Забыл пароль"></center>
+				<center><input type="button" value="Регистрация" onClick="window.location('/registration')"></center>
+			</form>
 				
 			</td>
         </tr>
